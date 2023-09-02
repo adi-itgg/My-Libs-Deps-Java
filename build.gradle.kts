@@ -17,3 +17,20 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+subprojects {
+    apply(plugin = "java")
+    apply(plugin = "maven-publish")
+
+    val javaVersion = "1.8"
+
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
+
+    tasks.withType<Jar> {
+        enabled = true
+    }
+
+}
