@@ -1,5 +1,5 @@
 rootProject.name = "aitech-libs-deps-java"
-include("Vertx-Config-Yml")
+include("vertx-config-yml")
 
 dependencyResolutionManagement {
     versionCatalogs {
