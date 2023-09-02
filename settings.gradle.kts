@@ -1,4 +1,4 @@
-rootProject.name = "My-Libs-Deps-Java"
+rootProject.name = "aitech-libs-deps-java"
 include("Vertx-Config-Yml")
 
 dependencyResolutionManagement {
