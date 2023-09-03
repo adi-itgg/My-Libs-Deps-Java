@@ -1,9 +1,10 @@
 plugins {
     id("java")
+    id("maven-publish")
 }
 
 group = "com.aitech.llc"
-version = "1.0"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -18,19 +19,23 @@ tasks.test {
     useJUnitPlatform()
 }
 
+project("vertx-config-yml") {
+    version = "1.0.0"
+}
+
 subprojects {
     apply(plugin = "java")
     apply(plugin = "maven-publish")
+
+    repositories {
+        mavenCentral()
+    }
 
     val javaVersion = "1.8"
 
     tasks.withType<JavaCompile> {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
-    }
-
-    tasks.withType<Jar> {
-        enabled = true
     }
 
     configure<PublishingExtension> {
@@ -45,4 +50,7 @@ subprojects {
     }
 
 
+    tasks.test {
+        useJUnitPlatform()
+    }
 }
